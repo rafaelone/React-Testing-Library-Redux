@@ -1,23 +1,14 @@
-import axios from 'axios';
 import { Dispatch } from 'redux';
-import { apiGit } from '../../services/apiGit';
+import { api } from '../../services/api';
 
 import * as types from './types';
 
 export const getTotalFeaturesRepoGit =
   () =>
   (dispatch: Dispatch): void => {
-    apiGit
-      .get('/repos/facebook/react/issues')
-      .then((response) => {
-        console.log('chamou');
-        console.log(response.data);
-        dispatch({ type: types.NUMBER_ISSUES, payload: response.data.length });
-      })
-      .catch((err) => {
-        console.log(err);
-        console.log('erro');
-      });
+    api.get('/').then((response) => {
+      dispatch({ type: types.NUMBER, payload: 10 });
+    });
   };
 
 export const increment =

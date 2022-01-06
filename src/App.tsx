@@ -9,7 +9,7 @@ import { RootState } from './store';
 import { useEffect } from 'react';
 
 function App() {
-  const { count, issues, loading } = useSelector(
+  const { count, number, loading } = useSelector(
     (state: RootState) => state.countReducer,
   );
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ function App() {
         <span data-testid="loading">loading</span>
       ) : (
         <div>
-          <strong data-testid="reducer">{issues}</strong>
+          <strong data-testid="reducer">{number}</strong>
         </div>
       )}
     </div>
